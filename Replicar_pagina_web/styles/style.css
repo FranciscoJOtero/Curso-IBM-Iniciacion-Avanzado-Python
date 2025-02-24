@@ -1,0 +1,220 @@
+/* Estilos generales */
+* {box-sizing: border-box;}
+html{scroll-behavior: smooth;}
+
+body{
+    font-family: 'Roboto' , sans-serif;
+    margin: 0;
+    background-color:rgb(200, 200, 200);
+}
+h1 {font-size: 3.5em;}
+h2 {font-size: 2.7em;}
+h3 {font-size: 1.8em;}
+p {font-size: 1.5em;}
+ul {list-style: none;}
+li {font-size: 1.5em;}
+button{
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,3);
+    box-shadow: 2px 2px 2px rgba(0,0,0,5);
+    color: white;
+    background-color: blueviolet;
+}
+button:hover{
+    background-color: rgb(101, 33, 165);
+}
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+.acento {color: blueviolet;}
+.header {
+    width: 100%;
+    padding: 5px 0;
+    background-color:rgb(200, 200, 200);
+}
+
+/* Barra de navegación*/
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.logo{
+    color: blueviolet;
+    font-weight: bold;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+}
+
+nav a:hover{
+    color: blueviolet;
+}
+/*Fin de la barra de navegación*/
+/*section con clase hero*/
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(
+        0deg,
+        rgb(0,0,0,0.5),
+        rgb(0,0,0,0.5)
+    )
+    ,url("../assets/image/img3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 auto;
+    
+}
+
+.hero h1{
+    color: white;
+}
+
+.hero button{
+    font-size: 1.75em;
+}
+/*Fin de la section con clase hero*/
+/*section con clase somos-bejob*/
+.somos-bejob .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+.somos-bejob .img-container{
+    width: 50%;
+    padding-right: 20px;
+}
+
+.somos-bejob .text-container{
+    max-width: 50%;
+}
+.somos-bejob img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+/*Fin de la section con clase somos-bejob*/
+/*section con clase nuestros-programas*/
+.espacio {
+    max-width: 100%;
+    height: 180px;
+    background-color:gray;
+}
+
+.nuestros-programas{
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+}
+.nuestros-programas .container{
+    padding: 150px 40px;
+}
+.nuestros-programas h2{
+    margin-top: 0;
+    font-size: 3.2em;
+}
+.nuestros-programas .programas{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.nuestros-programas .cursos{
+    background-position: center center;
+    background-size: cover;
+    padding: 140px 20px;
+    margin: 30px;
+    border-radius: 15px;
+}
+.cursos:first-child{
+    background-image:linear-gradient(
+        0deg,
+        rgb(0,0,0,0.5),
+        rgb(0,0,0,0.5)
+    ) 
+    ,url(../assets/image/img.jpg);
+}
+.cursos:nth-child(2){
+    background-image:linear-gradient(
+        0deg,
+        rgb(0,0,0,0.5),
+        rgb(0,0,0,0.5)
+    ) 
+    ,url(../assets/image/img4.jpg);
+}
+.cursos:nth-child(3){
+    background-image:linear-gradient(
+        0deg,
+        rgb(0,0,0,0.5),
+        rgb(0,0,0,0.5)
+    ) 
+    ,url(../assets/image/python.jpg);
+}
+/*Fin de la section con clase nuestros-programas*/
+/*section con clase caracteristicas*/
+.caracteristicas .container{
+    text-align: center;
+    padding: 75px 20px;
+}
+.caracteristicas li{
+    margin: 16px 0px;
+    font-weight: bold;
+}
+.fa-solid fa-check{
+    color: red;
+}
+.material-symbols-outlined{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+/*Fin de la section con clase caracteristicas*/
+
+.final{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    height: 80vh;
+}
+.final h2{
+    font-size: 6vw;
+}
+.final button{
+    font-size: 3vw;
+}
+footer{
+    background-color: rgb(230, 230, 230);
+}
+footer p {
+    margin: 0;
+    padding: 12px;
+    color: rgb(100, 100, 100);
+}
+footer .container{
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
