@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Pruebas Bootstrap</title>
+</head>
+<body>
+    <header>
+        <h1>Pruebas con Bootstrap</h1>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="col-x1-2 bg-primary text-white">Columna 1</div>
+            <div class="col-x1-10 bg-dark text-white">Columna 2</div>
+        </div>
+        <div class="row">
+            <div class="col-x1-6 bg-primary text-white">Columna 1</div>
+            <div class="col-x1-6 bg-dark text-white">Columna 2</div>
+        </div>
+        <h2>Colores de texto en Bootstrap</h2>
+        <p class="text-muted">muted, silenciado, apagado</p>
+        <p class="text-primary">Primary</p>
+        <p class="text-succes">Success, éxito</p>
+        <p class="text-info">Información</p>
+        <p class="text-warning">Warning!</p>
+        <p class="text-danger">Danger!!</p>
+        <p class="text-secondary">Secundario</p>
+        <p class="text-body">Negro</p>
+        <p class="text-light">Light grey</p>
+        <p class="text-white bg-dark">Gray</p>
+        <h2>Colores de fondo en Bootstrap</h2>
+        <p class="bg-primary text-white">bg-primary</p>
+        <p class="bg-succes text-dark">Succes</p>
+        <p class="bg-info text-white">Info</p>
+        <p class="bg-warning text-white">Warning!</p>
+        <p class="bg-danger text-white">Danger!!</p>
+        <p class="bg-secondary text-white">Secundario</p>
+        <p class="bg-dark text-white">Dark(grey)</p>
+        <p class="bg-light text-dark">Light(grey)</p>
+        <h2>Botones en Bootstrap</h2>
+        <p>La clase btn se puede añadires a los elementos button input y a</p>
+        <button type="button" class="btn">básico</button>
+        <button type="button" class="btn btn-primary">primary</button>
+        <button type="button" class="btn btn-secondary">secondary</button>
+        <button type="button" class="btn btn-success">success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">danger</button>
+        <button type="button" class="btn btn-dark">dark</button>
+        <button type="button" class="btn btn-light">light</button>
+        <button type="button" class="btn btn-link">link</button>
+        <br>
+        <button type="button" class="btn btn-outline-primary">primary</button>
+        <button type="button" class="btn btn-outline-secondary">secondary</button>
+        <button type="button" class="btn btn-outline-success">success</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-danger">danger</button>
+        <button type="button" class="btn btn-outline-dark">dark</button>
+        <button type="button" class="btn btn-outline-light">light</button>
+        <button type="button" class="btn btn-outline-link">link</button>
+        <h2>Imagenes en Bootstrap</h2>
+        <div class="row">
+            rounded
+            <div class="col-xl-12">
+                <img src="./img/paisaje.png" alt="paisaje" width="400" class="rounded mx-auto d-block">
+            </div>
+        </div>
+        <h2>Tablas en Bootstrap</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Baraja española</th>
+                    <th>Baraja francesa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>caballo</td>
+                    <td>Reina</td>
+                </tr>
+                <tr>
+                    <td>Rey</td>
+                    <td>Rey</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Cards en Bootstrap</h2>
+        <div class="card" style="width:400px">
+            <div class="card-header">
+                <h4 class="card-title">Un paisaje bonito</h4>
+            </div>
+            <div class="card-body">
+                <img src="./img/paisaje.png" alt="paisaje" width="300" class="mx-auto d-block">
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary float-end">Más Información</a>
+            </div>
+        </div>
+        <h2>Formularios en Bootstrap 5.</h2>
+        <div class="container">
+            <h3>Formulario</h3>
+            <form action="#">
+                <div class="form-group">
+                    <label for="usuario" class="form-label">Nombre de usuario:</label>
+                    <input type="text" id="usuario" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena" class="form-label">Contraseña:</label>
+                    <input type="password" id="contrasena" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="pais" class="form-label">País:</label>
+                    <input type="text" id="pais" class="form-control"><br><br>
+                </div>
+                <input type="submit">
+            </form>
+        </div>
+        <hr>
+        <h2>Carrusel en Bootstrap 5.</h2>
+        <div class="container">
+            <div id="carrusel01" class="carousel slide" data-bs-ride="carousel">
+                <!-- INDICADORES -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carrusel01" data-bs-slide-to="0" class="active img-fluid"></button>
+                    <button type="button" data-bs-target="#carrusel01" data-bs-slide-to="1" class="img-fluid"></button>
+                    <button type="button" data-bs-target="#carrusel01" data-bs-slide-to="2" class="img-fluid"></button>
+                    <button type="button" data-bs-target="#carrusel01" data-bs-slide-to="3" class="img-fluid"></button>
+                </div>
+                <!-- FOTOS -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./img/paisaje.png" alt="paisaje" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>Paisaje 1</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/paisaje1.jpg" alt="paisaje" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>Paisaje 2</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/paisaje2.jpg" alt="paisaje" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>Paisaje 3</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/paisaje4.jpg" alt="paisaje" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>Paisaje 4</h3>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="carousel-control-prev" data-bs-target="#carrusel01" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button type="button" class="carousel-control-next" data-bs-target="#carrusel01" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+                <!-- Las imágenes no se ven todas igual, habría que ajustar el tamaño -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="text-info float-end">Pruebas con Bootstrap, curso IBM, Francisco J. Otero</p>
+    </footer>
+</body>
+</html>
