@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Prácticas JavaScript</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Generador de Contraseñas</h1>
+    </header>
+    <main class="main">
+        <label for="longitud">Longitud:</label>
+        <input type="number" name="longitud" id="longitud">
+        <label>Mayusculas:<input type="checkbox" id="mayusculas" checked></label>
+        <label>Minúsculas:<input type="checkbox" id="minusculas" checked></label>
+        <label>Números:<input type="checkbox" id="numeros" checked></label>
+        <label>Símbolos:<input type="checkbox" id="simbolos" checked></label>
+        <button id="generar" class="button">Generar</button>
+        <div id="contrasena" class="contrasena"></div>
+        <button class=" copiar button" id="copiar">Copiar Contraseña</button>
+        <div id="seguridad" class="seguridad"></div>
+        <div class="copiado"></div>
+    </main>
+    <footer class="footer">
+        <p>Prácticas de JavaScript en el curso de IBM, lenguaje de programación Python,por el alumno Francisco Javier Otero Herrero</p>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>

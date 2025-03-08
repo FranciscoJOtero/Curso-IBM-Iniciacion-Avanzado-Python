@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Prácticas Con JavaScript</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Temperaturas</h1>
+        <div class="input-gruop">
+            <label for="temperatura">Temperatura:</label>
+            <input type="number" name="temperatura" id="temperatura" placeholder="Ingresa la temperatura">
+        </div>
+        <div class="input-group">
+            <label for="escalaOriginal">Escala original:</label>
+            <select name="escalaOriginal" id="escalaOriginal">
+                <option value="celsius">Celsius</option>
+                <option value="farenheit">Farenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="escalaDestino">Escala destino:</label>
+            <select name="escalaDestino" id="escalaDestino">
+                <option value="celsius">Celsius</option>
+                <option value="farenheit">Farenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+        </div>
+        <button id="convertir">Convertir</button>
+        <div id="resultado" class="resultado"></div>
+    </div>
+    <footer>
+        <p>Prácticas de JavaScript en el curso de IBM, lenguaje de programación Python,alumno: Francisco Javier Otero Herrero</p>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
