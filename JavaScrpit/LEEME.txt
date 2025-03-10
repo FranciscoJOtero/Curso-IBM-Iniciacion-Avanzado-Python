@@ -1,0 +1,23 @@
+Ejercicios Intermedios:
+
+Lista de tareas (To-Do List): Este ejercicio consiste en crear una aplicación web que permita al usuario crear, editar y eliminar tareas.
+
+Juego de adivinanza de números: Este ejercicio consiste en crear un juego en el que el usuario debe adivinar un número aleatorio generado por la computadora.
+
+Validador de formularios: Este ejercicio consiste en crear una función que valide los datos ingresados en un formulario web.
+
+Filtro de productos: Este ejercicio consiste en crear una aplicación web que permita al usuario filtrar una lista de productos por diferentes criterios (por ejemplo, precio, categoría, marca).
+
+Cronómetro: Este ejercicio consiste en crear una aplicación web que funcione como un cronómetro.
+
+Ejercicios Avanzados:
+
+API del clima: Este ejercicio consiste en crear una aplicación web que utilice una API para obtener y mostrar información sobre el clima.
+
+Juego de memoria: Este ejercicio consiste en crear un juego de memoria en el que el usuario debe encontrar parejas de cartas iguales.
+
+Chat en tiempo real: Este ejercicio consiste en crear una aplicación web de chat en tiempo real que permita a los usuarios comunicarse entre sí.
+
+Generador de gráficos: Este ejercicio consiste en crear una aplicación web que permita al usuario generar gráficos a partir de datos ingresados.
+
+Aplicación de dibujo: Este ejercicio consiste en crear una aplicación web que permita al usuario dibujar en un lienzo virtual.

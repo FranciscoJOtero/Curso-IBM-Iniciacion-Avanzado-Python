@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="stylesheet" href="./styles/style2.css">/*Tercera opción de CSS*/ -->
+    <title>Prácticas JavaScript</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Contador de Vocales</h1>
+    </header>
+    <main class="main">
+        <div class="container">
+            <textarea name="texto" id="texto" class="container__textarea" placeholder="Ingresa el texto aqui..." maxlength="500"></textarea>
+            <button class="container__button" id="contar">Contar Vocales</button>
+            <div class="container__result" id="resultado"></div>
+            <div class="container__contador" id="contador">0/500</div>
+            <label class="switch">
+                <input type="checkbox" id="tema-oscuro">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__paragraph">Prácticas de JavaScript en el curso de IBM, lenguaje de programación Python,por el alumno Francisco Javier Otero Herrero</p>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
