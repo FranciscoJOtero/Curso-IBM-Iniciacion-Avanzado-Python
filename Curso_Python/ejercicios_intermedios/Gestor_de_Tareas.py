@@ -23,13 +23,6 @@ import json
 # directorios, variables de entorno, rutas del sistema y más.
 import os
 
-# tkinter es una biblioteca estándar de Python que se utiliza para crear interfaces gráficas de usuario 
-# (GUI, por sus siglas en inglés: Graphical User Interface ).Es una herramienta muy popular porque viene 
-# incluida con Python (no necesitas instalar nada adicional) y es relativamente sencilla de usar.
-
-# En lugar de importar todo el módulo (import tkinter), solo se importan los elementos que necesitas. 
-from tkinter import Tk, Label, Entry, Button, Listbox, messagebox, END
-
 #Nombre del archivo para guardar las tareas 
 Archivo_Tareas = "tareas.json"
 
