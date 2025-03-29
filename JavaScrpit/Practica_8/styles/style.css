@@ -1,0 +1,148 @@
+/*Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f0f2f5;
+    color: #333;
+    padding: 20px;
+    min-height: 97vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* header */
+
+.header {
+    background: #2d3436;
+    color: #f0f2f5;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 3px solid #48dbfb;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.header__title {
+    font-size:2.5rem;
+    font-weight: bold;
+    letter-spacing:.3rem;
+}
+
+/* contenedor principal*/
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #666;
+}
+
+/*Input y botón*/
+.container__input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3 ease;
+}
+
+.container__input:focus {
+    border-color: #48dbfb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(72, 219, 251, 0.3);
+}
+
+.container__input:focus:invalid {
+    box-shadow: 0 0 0 5px rgba(246, 2, 2, 0.3);
+}
+
+.container__button {
+    width: 100%;
+    padding: 12px;
+    background: #48dbfb;
+    border: none;
+    border-radius: 5px;
+    color: #f0f2f5;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3 ease;
+    margin-bottom: 2rem;
+}
+
+.container__button:hover {
+    background: #0abde3;
+    transform: translateY(-3px);
+}
+
+.container__button:active {
+    transform: translateY(0);
+}
+
+.error {
+    font-size: 1rem;
+    color: rgb(210, 66, 47);
+    margin-bottom: 0.5rem;
+}
+
+/* Pie de página */
+.footer {
+    margin-top: 20px;
+    padding: 1rem;
+    background: #2d3436;
+    color: #f0f2f5;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.footer__paragraph {
+    margin: 0;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px){
+    .container{
+        padding: 10px;
+    }
+
+    .container__input,
+    .container__button,
+    .container__label {
+        font-size: 1rem;
+    }
+
+    .header__title {
+        font-size:1.7rem;
+    }
+
+    .footer__paragraph {
+        font-size: 1rem;
+    }
+}
+

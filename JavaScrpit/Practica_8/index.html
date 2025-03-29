@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./js/script.js"></script>
+    <title>Validación de Formularios</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Validación de Formularios</h1>
+    </header>
+    <main class="main">
+        <div class="container">
+            <form action="#" id="registro_form" novalidate>
+                <label for="nombre" class="container__label">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" class="container__input" required aria-describedby="error-nombre">
+                <div id="error-nombre" class="error"></div>
+                
+                <label for="email" class="container__label">Email:</label>
+                <input type="text" name="email" id="email" class="container__input" autocomplete="username" required aria-describedby="error-email">
+                <div id="error-email" class="error"></div>
+                
+                <label for="password" class="container__label">Contraseña:</label>
+                <input type="password" name="password" id="password" class="container__input" autocomplete="new-password" required minlength="6" aria-describedby="error-password">
+                <div id="error-password" class="error"></div>
+                
+                <label for="confirm_password" class="container__label">Confirmar Contraseña:</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="container__input" autocomplete="new-password" required aria-describedby="error-confirm-password">
+                <div id="error-confirm_password" class="error"></div>
+                
+                <button type="submit" id="boton__registro" class="container__button">Registrarse</button>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__paragraph">Prácticas de JavaScript en el curso de IBM, lenguaje de programación Python, por el alumno Francisco Javier Otero Herrero</p>
+    </footer>
+</body>
+</html>

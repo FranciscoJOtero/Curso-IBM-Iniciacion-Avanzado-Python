@@ -1,9 +1,5 @@
 Ejercicios Intermedios:
 
-Juego de adivinanza de números: Este ejercicio consiste en crear un juego en el que el usuario debe adivinar un número aleatorio generado por la computadora.
-
-Validador de formularios: Este ejercicio consiste en crear una función que valide los datos ingresados en un formulario web.
-
 Filtro de productos: Este ejercicio consiste en crear una aplicación web que permita al usuario filtrar una lista de productos por diferentes criterios (por ejemplo, precio, categoría, marca).
 
 Cronómetro: Este ejercicio consiste en crear una aplicación web que funcione como un cronómetro.
