@@ -1,5 +1,4 @@
-# PROXIMAMENTE SE AÑADIRÁ INTERFAZ GRÁFICA CON TKINTER PARA ESTA APP
-#También se añadirán comentarios explicando el código
+# Este código se ha reutilizado de la App llamada zona_fit_db
 class Cliente:
     def __init__(self, id=None, nombre=None, apellido=None, membresia=None):
         self.id = id
