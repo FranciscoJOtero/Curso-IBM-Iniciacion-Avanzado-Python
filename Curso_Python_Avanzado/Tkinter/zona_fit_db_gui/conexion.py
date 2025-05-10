@@ -40,13 +40,4 @@ class Conexion:
     def liberar_conexion(cls, conexion):
         conexion.close()
 
-#---------------------  PRUEBAS -------------------------------------------------------------------------------------------------------
-# if __name__ == '__main__':
-#     pool = Conexion.obtener_pool()
-#     print(pool)
-#     conexion1 = pool.get_connection()
-#     print(conexion1)
-#     Conexion.liberar_conexion(conexion1)
-#     print(f'se ha liberado la conexion del objeto {conexion1}')
-
 
