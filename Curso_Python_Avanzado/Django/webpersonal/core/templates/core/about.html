@@ -7,11 +7,23 @@
     <title>{% block title %} Acerca de {% endblock %}</title>
 </head>
 <body>
-    {% block content %} 
-        <h2>Acerca de</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat cum vero doloribus quia modi eum at eaque aliquam. Deserunt dolores laboriosam minima? Illo quasi eum, eligendi voluptatum ipsam cumque vel.
-        Labore cumque similique nam quidem architecto quam. Corrupti explicabo placeat quos iste error amet commodi fugit. Mollitia assumenda nobis eveniet corrupti vel voluptates in temporibus corporis delectus, veritatis, veniam dolorum.
-        </p>
+    {% block background %} {% load static %} {% static 'core/img/about-bg.jpg' %}{% endblock %}
+    {% block headers %}
+        <h1>Acerca de</h1>
+        <span class="subheading">Biografía</span>
+    {% endblock %}
+
+    {% block content %}
+        <div class="row">
+            <div class="col-lg-3 col-md-4 offset-lg-1">
+            <img class="img-fluid avatar" src="{% static 'core/img/avatar.jpg' %}" alt="">
+            </div>
+            <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading">Francisco Javier</h2>   
+            <p>Nacido en Segovia... lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit...</p>
+            </div>
+        </div>
     {% endblock %}
 </body>
 </html>

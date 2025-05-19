@@ -7,9 +7,10 @@
     <title>{% block title %} Portada {% endblock %}</title>
 </head>
 <body>
-    {% block content %} 
-        <h2>Portada</h2>
-        <p>Esto es la portada</p>
+    {% block background %} {% load static %} {% static 'core/img/home-bg.jpg' %}{% endblock %} 
+    {% block headers %} 
+        <h1>Francisco Javier</h1>
+        <span class="subheading">Programador Python</span>
     {% endblock %}
 </body>
 </html>
