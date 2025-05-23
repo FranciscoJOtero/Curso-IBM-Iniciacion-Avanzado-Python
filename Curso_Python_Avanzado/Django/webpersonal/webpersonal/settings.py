@@ -10,27 +10,71 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+"""
+El archivo settings.py es el corazón de nuestro proyecto Django. Contiene todas las configuraciones esenciales
+que Django necesita para funcionar correctamente, desde la conexión a la base de datos hasta la forma en que se manejan
+las plantillas y los archivos estáticos. Cada línea aquí define un aspecto crucial de cómo se comporta la aplicación.
+
+"""
+
 import os
+
+#Importa la clase Path del módulo pathlib. Esta clase ofrece una forma orientada a objetos para manejar rutas 
+#de sistemas de archivos, lo que a menudo es más robusto y legible que el módulo os.path tradicional.
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+#Esta línea calcula la ruta base del proyecto.
 BASE_DIR = Path(__file__).resolve().parent.parent
+#__file__ es una variable especial que contiene la ruta al archivo actual (settings.py).
+#Path(__file__) convierte esa ruta en un objeto Path.
+#.resolve() resuelve cualquier enlace simbólico y devuelve la ruta absoluta.
+#.parent devuelve el directorio padre. Al aplicarlo dos veces (.parent.parent), se mueve desde 
+#webpersonal/webpersonal/settings.py (el archivo actual) a webpersonal/webpersonal/ (primer .parent) 
+#y luego a webpersonal/ (segundo .parent), que es el directorio raíz del proyecto Django. 
+#Esta variable es fundamental para construir rutas relativas a la raíz del proyecto.
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+#Esta es una clave secreta única utilizada por Django para varios propósitos de seguridad.
+#  -Incluye:
+        #Cifrado de la sesión.
+        #Protección CSRF (Cross-Site Request Forgery).
+        #Hasing de contraseñas.
+
+    #Es CRÍTICA para la seguridad de la aplicación. El comentario SECURITY WARNING: keep the secret key used in production secret! 
+    #te advierte que esta clave nunca debe ser expuesta en entornos de producción y debe ser un valor complejo y aleatorio. 
+    #La que ves aquí es solo para desarrollo.
 SECRET_KEY = 'django-insecure-xo3xy(4j*ygqx0)9r)+!trbfz(o0gb2%#t8c2*!(pw=72a7anr'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
+#Este ajuste controla el modo de depuración de Django.
+#Cuando es True (como en desarrollo), Django proporciona información detallada de errores en el navegador,
+#recarga automáticamente el servidor cuando se hacen cambios en el código y puede mostrar trazas de pila (tracebacks) completas.
 DEBUG = True
 
+#Una lista de cadenas que representan los nombres de host/dominios en los que se puede servir tu sitio Django.
 ALLOWED_HOSTS = []
+#Cuando DEBUG es True, Django no valida ALLOWED_HOSTS, por lo que una lista vacía
+#funciona para el desarrollo local (por ejemplo, http://127.0.0.1:8000).
+#Cuando DEBUG es False (en producción), debes especificar los dominios en los que tu aplicación estará disponible 
+#(por ejemplo, ALLOWED_HOSTS = ['midominio.com', 'www.midominio.com']). 
+#Si una solicitud entrante tiene un Host que no está en esta lista, Django devolverá un error 400 Bad Request.
 
 
 # Application definition
-
+#Una lista de cadenas que especifican todas las aplicaciones Django activas en nuestro proyecto.
+#Las primeras seis son aplicaciones de Django incluidas por defecto que proporcionan funcionalidades comunes:
+    #django.contrib.admin: El panel de administración de Django.
+    #django.contrib.auth: Sistema de autenticación de usuarios.
+    #django.contrib.contenttypes: Un marco para tipos de contenido, que permite asociar modelos con tipos de contenido (necesario para el sistema de permisos de autenticación).
+    #django.contrib.sessions: Soporte para sesiones de usuario.
+    #django.contrib.messages: Soporte para mensajes de una sola vez ("flash messages") que se muestran al usuario.
+    #django.contrib.staticfiles: Gestión de archivos estáticos (CSS, JavaScript, imágenes) durante el desarrollo y para recopilación en producción.
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,43 +85,79 @@ INSTALLED_APPS = [
     'core',
     'portfolio.apps.PortfolioConfig',
 ]
+#'core': Esta es una de las aplicaciones personalizadas dentro del proyecto webpersonal.
+#'portfolio.apps.PortfolioConfig': Esta es otra de las aplicaciones personalizadas. 
+# La notación . se usa para referenciar la clase de configuración de la aplicación (generalmente en apps.py dentro de la aplicación portfolio).
 
+#Una lista de clases de middleware (software intermedio) que procesan las solicitudes y respuestas 
+#de Django en una fase intermedia. Cada middleware realiza una tarea específica. 
+# Se ejecutan en el orden en que aparecen en esta lista para las solicitudes y en el orden inverso para las respuestas.
 MIDDLEWARE = [
+    #Implementa varias protecciones de seguridad, como el uso de HTTPS y encabezados de seguridad.
     'django.middleware.security.SecurityMiddleware',
+    #Habilita el soporte de sesiones en Django.
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #ñade algunas conveniencias para las "URLs limpias" y otras funcionalidades comunes.
     'django.middleware.common.CommonMiddleware',
+    #Protege contra ataques de falsificación de solicitudes entre sitios (CSRF).
     'django.middleware.csrf.CsrfViewMiddleware',
+    #Asocia usuarios a las solicitudes usando el sistema de autenticación de Django.
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #Habilita el soporte de mensajes.
     'django.contrib.messages.middleware.MessageMiddleware',
+    #Proporciona protección contra ataques de "clickjacking" al establecer el encabezado X-Frame-Options.
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#Especifica la ruta al módulo de URL principal de nuestro proyecto. Django buscará las definiciones de URL en el archivo urls.py 
+#dentro del paquete webpersonal. Es el punto de partida para que Django sepa cómo enrutar las solicitudes entrantes a las vistas correctas.
 ROOT_URLCONF = 'webpersonal.urls'
 
+# Configura el motor de plantillas de Django. Es una lista de diccionarios, cada uno definiendo una configuración de motor de plantillas.
 TEMPLATES = [
     {
+        #Indica que se usará el motor de plantillas predeterminado de Django.
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #Una lista de directorios donde Django buscará plantillas. Actualmente está vacía, 
+        #lo que significa que Django solo buscará plantillas dentro de los directorios templates/ 
+        #de las aplicaciones en INSTALLED_APPS. Si tuvieramos plantillas a nivel de proyecto 
+        #(fuera de una app específica), las añadirías aquí (ej. BASE_DIR /'templates').
         'DIRS': [],
+        #Le dice a Django que busque plantillas dentro de los subdirectorios
         'APP_DIRS': True,
+        #Un diccionario de opciones adicionales para el motor de plantillas.
         'OPTIONS': {
+            #Una lista de "procesadores de contexto". Estas son funciones que añaden automáticamente 
+            #variables al contexto de todas las plantillas renderizadas.
             'context_processors': [
+                #Añade el objeto request a todas las plantillas.
                 'django.template.context_processors.request',
+                #Añade variables relacionadas con la autenticación (como user) al contexto de la plantilla.
                 'django.contrib.auth.context_processors.auth',
+                # Añade los mensajes del framework de mensajes al contexto de la plantilla.
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
 
+#Especifica la ruta al objeto "callable" WSGI de tu proyecto. Esto es para servidores web síncronos 
+#(como Gunicorn o Apache/mod_wsgi) que utilizarán este punto de entrada para servir tu aplicación Django. 
+#Es el análogo síncrono de ASGI_APPLICATION en asgi.py.
 WSGI_APPLICATION = 'webpersonal.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+#Un diccionario que define las configuraciones de la base de datos
 DATABASES = {
+    #Define la configuración para la base de datos principal que usará Django.
     'default': {
+        #Especifica el motor de base de datos a usar. En este caso, es SQLite 3, que es una base de datos
+        #basada en archivos, ligera y muy utilizada para desarrollo y pruebas.
         'ENGINE': 'django.db.backends.sqlite3',
+        #Define el nombre (y la ruta) del archivo de la base de datos. 
+        #BASE_DIR / 'db.sqlite3' significa que el archivo db.sqlite3 se creará directamente en el directorio raíz del proyecto.
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -85,18 +165,23 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
+#Una lista de validadores de contraseñas que se aplican cuando los usuarios crean o cambian sus contraseñas. 
+#Estos validadores ayudan a hacer que las contraseñas sean más seguras.
 AUTH_PASSWORD_VALIDATORS = [
     {
+        #Evita contraseñas que sean demasiado similares a atributos del usuario (nombre de usuario, correo electrónico, etc.).
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
+        #Requiere una longitud mínima para la contraseña.
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
+        #Evita contraseñas de uso común.
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
+        #Evita contraseñas que sean puramente numéricas.
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
@@ -104,26 +189,55 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
-
+#Define el código de idioma predeterminado para tu instalación de Django. En este caso, está configurado para español de España. 
+#Esto afecta la traducción de mensajes internos de Django y el formato de fechas y números si usamos las 
+#herramientas de internacionalización de Django.
 LANGUAGE_CODE = 'es-es'
 
+#Define la zona horaria predeterminada para el proyecto. UTC (Coordinated Universal Time) es un estándar global. 
+#Se recomienda usar UTC para almacenar fechas y horas en la base de datos y luego convertirlas
+#a la zona horaria local del usuario para mostrarlas.
 TIME_ZONE = 'UTC'
 
+#Habilita el sistema de internacionalización de Django, lo que permite traducir el contenido de la aplicación a diferentes idiomas.
 USE_I18N = True
 
+#Habilita el soporte para zonas horarias. Esto significa que Django almacenará las fechas y horas con información de zona horaria
+#y las convertirá según sea necesario. Es muy recomendable mantenerlo en True para evitar problemas con el horario de verano 
+#o usuarios en diferentes zonas horarias.
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
+#Define la URL base desde la cual se servirán los archivos estáticos (CSS, JavaScript, imágenes) 
+#cuando se acceda a ellos en el navegador. Por ejemplo, si tienes un archivo style.css en static/css/, 
+#su URL sería tudominio.com/static/css/style.css.
 STATIC_URL = 'static/'
 
 #media files
+#Define la URL base desde la cual se servirán los archivos de medios 
+#(archivos subidos por los usuarios, como fotos de perfil, documentos, etc.) 
+#cuando se acceda a ellos en el navegador.
 MEDIA_URL = '/media/'
+
+#Define la ruta absoluta en el sistema de archivos donde Django almacenará los archivos de medios subidos por los usuarios. 
+#os.path.join(BASE_DIR, "media") construirá una ruta que apunta a un directorio llamado media 
+#directamente dentro del directorio raíz del proyecto.
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
+#Este ajuste define el tipo de campo predeterminado para las claves primarias automáticas (campos id) en todos tus modelos de Django.
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#BigAutoField es un tipo de campo que puede almacenar números enteros muy grandes (hasta 9.22 * 10^18), 
+#lo cual es una buena práctica para bases de datos que pueden crecer mucho. 
+#Las versiones anteriores de Django usaban AutoField (enteros de 32 bits) por defecto.
+
+"""
+    settings.py es el panel de control central de nuestro proyecto Django. 
+    Cada variable aquí juega un papel fundamental en la configuración de la seguridad, el rendimiento, 
+    la internacionalización y la funcionalidad general de nuestra aplicación. 
+    Es crucial entender su propósito, especialmente cuando se pasa de un entorno de desarrollo a uno de producción.
+
+"""
