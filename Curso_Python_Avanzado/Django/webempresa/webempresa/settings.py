@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',
     'core',
+    'pages.apps.PagesConfig',
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',
 ]
@@ -130,3 +132,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # media config
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#ckeditor
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ],
+        'height': 400,  # Altura inicial del editor
+        'width': '180%',  # Ancho del editor al 100%
+        'resize_enabled': False,  # Desactiva la opción de redimensionar
+        'autoGrow_minHeight': 400,  # Altura mínima del editor
+        'autoGrow_maxHeight': 800,  # Altura máxima del editor
+        'autoGrow_onStartup': True,  # Permite que el editor crezca automáticamente al inicio
+    }
+}
