@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'ckeditor',
+    'contact',
     'core',
     'pages.apps.PagesConfig',
     'services.apps.ServicesConfig',
@@ -145,10 +146,12 @@ CKEDITOR_CONFIGS = {
             ['RemoveFormat', 'Source']
         ],
         'height': 400,  # Altura inicial del editor
-        'width': '180%',  # Ancho del editor al 100%
+        'width': "100%",
         'resize_enabled': False,  # Desactiva la opción de redimensionar
-        'autoGrow_minHeight': 400,  # Altura mínima del editor
-        'autoGrow_maxHeight': 800,  # Altura máxima del editor
-        'autoGrow_onStartup': True,  # Permite que el editor crezca automáticamente al inicio
     }
 }
+# Email config
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '70b431636a6f36'
+EMAIL_HOST_PASSWORD = '176fc65fcc5dd8'
+EMAIL_PORT = '2525'

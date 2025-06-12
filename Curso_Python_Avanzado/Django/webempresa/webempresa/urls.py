@@ -31,6 +31,9 @@ urlpatterns = [
     #path de pages
     path('page/', include('pages.urls')),
 
+    #path de contact
+    path('contact/', include('contact.urls')),
+
     #Paths del admin
     path('admin/', admin.site.urls),
 ]
