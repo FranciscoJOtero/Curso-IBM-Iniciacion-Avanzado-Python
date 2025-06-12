@@ -1,30 +1,46 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base.html' %} <!-- Misma herencia que blog.html -->
 
-{% load static %}
+{% load static %} <!-- Necesario para cargar assets estáticos -->
 
+<!-- BLOCK TITLE -->
 {% block title %}Blog{% endblock %}
+{# Mantiene el mismo título que blog.html (podría personalizarse) #}
 
+<!-- BLOCK CONTENT -->
 {% block content %}
+{# Bloque principal con estructura similar a blog.html pero cambia el dataset #}
+
+  <!-- BUCLE FOR PRINCIPAL -->
   {% for post in category.get_posts.all %}
+  {# Itera sobre posts filtrados por categoría usando el related_name 'get_posts' definido en models.py #}
     <section class="page-section cta">
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <div class="cta-innerv text-center rounded">
+
+              <!-- FECHA Y TÍTULO (Mismo que blog.html) -->
               <h2 class="section-heading mb-5">
                 <span class="section-heading-upper">{{post.published|date:"SHORT_DATE_FORMAT"}}</span>
                 <span class="section-heading-lower">{{post.title}}</span>
               </h2>
+
+              <!-- IMAGEN (Idéntico) -->
               <p class="mb-0">
                 <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{post.image.url}}" alt="">
               </p>
+
+              <!-- CONTENIDO (Mismo filtro) -->
               <p class="mb-0 mbt">{{post.content|linebreaks}}</p>
+
+              <!-- AUTOR Y CATEGORÍAS -->
               <p class="mb-0 mbt">
                 <span class="section-heading-under">Publicado por <em><b>{{post.author}}</b></em> en
-                  <em> 
+                  <em>
+                   <!-- BUCLE CATEGORÍAS (Misma lógica) -->
                    {% for category in post.categories.all %}
                     <a href="{% url 'category' category.id %}" class="link">{{category.name}}</a>{% if not forloop.last %},{% endif %}
-                   {% endfor %}
+                   {% endfor %} <!-- Fin del bucle for de categorias -->
                   </em>
                 </span>
               </p>
@@ -33,8 +49,8 @@
         </div>
       </div>
     </section>
-  {% endfor %}
-{% endblock %}
+  {% endfor %} <!-- Fin del bucle for principal -->
+{% endblock %}<!-- Fin del block content -->
 
 
     

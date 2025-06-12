@@ -8,68 +8,88 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
+
+Contiene todas las configuraciones necesarias para el funcionamiento del proyecto Django,
+desde bases de datos hasta aplicaciones instaladas y configuraciones de seguridad.
 """
 
 import os
-from pathlib import Path
+from pathlib import Path # Para manejo moderno de rutas
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Configuración de rutas base
+BASE_DIR = Path(__file__).resolve().parent.parent # Ruta base del proyecto (webempresa/)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-utepoxr89k2)m^k)=zl%1*p8$i%#)r_y4i*giu6(ps&3y8k8y$'
+# -------------------------------
+# Configuraciones de Seguridad
+# -------------------------------
+SECRET_KEY = 'django-insecure-utepoxr89k2)m^k)=zl%1*p8$i%#)r_y4i*giu6(ps&3y8k8y$' # Clave secreta para hashing (¡CAMBIAR en producción!)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # Modo desarrollo activado (DESACTIVAR en producción)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] # Dominios permitidos (vacío = solo localhost)
 
 
 # Application definition
-
+# -------------------------------
+# Aplicaciones Instaladas
+# -------------------------------
 INSTALLED_APPS = [
+     # Apps core de Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Apps personalizadas propias
     'blog',
-    'ckeditor',
+    # Terceros
+    'ckeditor', # Editor de texto enriquecido
     'contact',
     'core',
-    'pages.apps.PagesConfig',
+    'pages.apps.PagesConfig', # Configuración personalizada de la app
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',
 ]
 
+# -------------------------------
+# Middlewares
+# -------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware', # Protección CSRF
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'webempresa.urls'
+# -------------------------------
+# URLs y Templates
+# -------------------------------
+ROOT_URLCONF = 'webempresa.urls' # Ruta principal de URLs
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [], # Directorios adicionales para templates
+        'APP_DIRS': True, # Busca templates en cada app
         'OPTIONS': {
             'context_processors': [
+                # Procesadores de contexto globales
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.processors.ctx_dict',
+                'social.processors.ctx_dict', # Custom para las redes sociales de la App
             ],
         },
     },
@@ -80,19 +100,24 @@ WSGI_APPLICATION = 'webempresa.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# -------------------------------
+# Base de Datos
+# -------------------------------
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3', # BBDD para desarrollo
+        'NAME': BASE_DIR / 'db.sqlite3', # Ruta de la BBDD SQLite
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
+# -------------------------------
+# Validación de Contraseñas
+# -------------------------------
 AUTH_PASSWORD_VALIDATORS = [
+    # Valida complejidad de contraseñas
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -111,34 +136,38 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'es' # Idioma español
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC' # Zona horaria
 
-USE_I18N = True
+USE_I18N = True # Internacionalización activada
 
-USE_TZ = True
+USE_TZ = True # Usa zona horaria
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
+# -------------------------------
+# Archivos Estáticos y Multimedia
+# -------------------------------
+STATIC_URL = 'static/' # URL base para archivos estáticos
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' # Tipo de ID automático
 
 # media config
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Configuración multimedia
+MEDIA_URL = '/media/' # URL para archivos subidos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Ruta donde se guardan
 
-#ckeditor
-
+# -------------------------------
+# CKEditor (Editor de texto)
+# -------------------------------
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Custom',
+        'toolbar': 'Custom', # Barra de herramientas personalizada
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
@@ -150,8 +179,17 @@ CKEDITOR_CONFIGS = {
         'resize_enabled': False,  # Desactiva la opción de redimensionar
     }
 }
-# Email config
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '70b431636a6f36'
-EMAIL_HOST_PASSWORD = '176fc65fcc5dd8'
+# -------------------------------
+# Configuración de Email (Mailtrap)
+# -------------------------------
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io' # Servidor SMTP para pruebas
+EMAIL_HOST_USER = '**********6f36' # Credenciales (¡OCULTAR en producción!)
+EMAIL_HOST_PASSWORD = '**********5dd8'
 EMAIL_PORT = '2525'
+
+'''
+El archivo settings.py es el corazón de configuración de tu proyecto Django. 
+Define desde la base de datos y aplicaciones usadas hasta seguridad, internacionalización y archivos estáticos. 
+Es donde activas/desactivas funcionalidades y personalizas el comportamiento global de tu app.
+
+'''

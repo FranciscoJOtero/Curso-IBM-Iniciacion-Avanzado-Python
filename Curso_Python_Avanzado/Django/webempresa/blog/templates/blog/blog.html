@@ -1,30 +1,47 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base.html' %} <!-- Hereda la estructura base del proyecto -->
 
-{% load static %}
+{% load static %} <!-- Carga la librería para archivos estáticos -->
 
+<!-- BLOCK TITLE -->
 {% block title %}Blog{% endblock %}
+{# Define el título que se inyectará en el bloque 'title' de la plantilla base #}
 
+<!-- BLOCK CONTENT -->
 {% block content %}
+  {# Inicio del bloque principal de contenido que reemplazará el 'content' de base.html #}
+
+  <!-- BUCLE FOR PRINCIPAL -->
   {% for post in posts %}
+  {# Itera sobre cada post en la lista 'posts' enviada por la vista #}
     <section class="page-section cta">
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <div class="cta-innerv text-center rounded">
+
+              <!-- FECHA Y TÍTULO -->
               <h2 class="section-heading mb-5">
-                <span class="section-heading-upper">{{post.published|date:"SHORT_DATE_FORMAT"}}</span>
-                <span class="section-heading-lower">{{post.title}}</span>
+                <span class="section-heading-upper">{{post.published|date:"SHORT_DATE_FORMAT"}}</span>{# Filtro que formatea la fecha #}
+                <span class="section-heading-lower">{{post.title}}</span> {# Muestra el título del post #}
               </h2>
+
+              <!-- IMAGEN -->
               <p class="mb-0">
-                <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{post.image.url}}" alt="">
+                <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{post.image.url}}" alt=""> {# URL de la imagen del post #}
               </p>
-              <p class="mb-0 mbt">{{post.content|linebreaks}}</p>
+
+              <!-- CONTENIDO -->
+              <p class="mb-0 mbt">{{post.content|linebreaks}}</p> {# Filtro que preserva saltos de línea #}
+
+              <!-- AUTOR Y CATEGORÍAS -->
               <p class="mb-0 mbt">
-                <span class="section-heading-under">Publicado por <em><b>{{post.author}}</b></em> en
-                    <em> 
-                     {% for category in post.categories.all %}
-                      <a href="{% url 'category' category.id %}" class="link">{{category.name}}</a>{% if not forloop.last %},{% endif %}
-                     {% endfor %}
+                <span class="section-heading-under">Publicado por <em><b>{{post.author}}</b></em> en {# Nombre del autor #}
+                    <em>
+                     <!-- BUCLE CATEGORÍAS --> 
+                     {% for category in post.categories.all %} {# Itera las categorías del post #}
+                      {# {% url 'category' category.id %} --> Genera URL dinámica #}
+                      <a href="{% url 'category' category.id %}" class="link">{{category.name}}</a>{% if not forloop.last %},{% endif %} {# Agrega una coma excepto al último elemento #}
+                     {% endfor %} {# Fin del bucle de categorias #}
                     </em>
                 </span>
               </p>
@@ -34,8 +51,8 @@
         </div>
       </div>
     </section>
-  {% endfor %}
-{% endblock %}
+  {% endfor %} {# Fin del bucle de posts #}
+{% endblock %} {# Fin del bloque de contenido #}
 
 
     
