@@ -1,10 +1,21 @@
 {% extends 'core/base.html' %}
+{# Extiende la plantilla base `base.html` desde la carpeta `core`. 
+   Esto permite reutilizar la estructura común (como encabezados, pies de página, etc.) 
+   y solo modificar las partes específicas de esta página. #}
+
 {% load static %}
+{# Carga el módulo `static`, que permite incluir archivos estáticos (CSS, JS, imágenes) 
+   en la plantilla usando #}
+
+{# Define el bloque `content`, que contiene el contenido principal de la página. 
+   Este bloque será reemplazado en la plantilla base `base.html`. #}
 {% block content %}
 <!-- Cabecera -->
   <section class="page-section clearfix">
     <div class="container">
       <div class="intro">
+        {# Incluye una imagen estática (`intro.jpg`) desde la carpeta `static/core/img/`. 
+         La función `{% static 'ruta' %}` genera la URL correcta para el archivo estático. #}
         <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'core/img/intro.jpg'%}" alt="">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <h2 class="section-heading mb-4">
@@ -14,6 +25,7 @@
           <p class="mb-3">Trabajamos sólo con los mejores ingredientes. Una vez lo pruebes, nuestro café será la mejor forma de empezar tu rutina diaria.
           </p>
           <div class="intro-button mx-auto">
+            {# Genera la URL para la vista nombrada `'store'` usando el sistema de URLs reversibles de Django. #}
             <a class="btn btn-primary btn-xl" href="{% url 'store' %}">Visítanos</a>
           </div>
         </div>

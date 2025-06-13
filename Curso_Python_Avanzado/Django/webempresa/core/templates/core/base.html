@@ -13,14 +13,17 @@
     {% load static %}
 
     <!-- Bootstrap -->
+    {# Incluye un archivo CSS estático (`bootstrap.min.css`) desde la carpeta `static/core/vendor/bootstrap/css/`. #}
     <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Fuentes -->
+    {# Incluye un archivo CSS estático (`font-awesome.min.css`) desde la carpeta `static/core/vendor/font-awesome/css/`. #}
     <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
     <!-- Estilos -->
+    {# Incluye un archivo CSS estático personalizado (`business-casual.css`) desde la carpeta `static/core/css/`. #}
     <link href="{% static 'core/css/business-casual.css' %}" rel="stylesheet">
 
   </head>
@@ -35,28 +38,37 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
+        {# Genera la URL para la vista nombrada `'home'` usando el sistema de URLs reversibles de Django. #}
         <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home' %}">La Caffettiera</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
+            {# Verifica si la ruta actual (`request.path`) es `'/'` y agrega la clase `active` al elemento `<li>` si es verdadero.#}
             <li class="nav-item px-lg-4 {% if request.path == '/'%} active {% endif %}">
+              {#Genera la URL para la vista nombrada `'home'`. #}
               <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
             </li>
+            {# Similar al anterior, pero verifica si la ruta actual es `'/about/'` y genera la URL para la vista `'about'`. #}
             <li class="nav-item px-lg-4 {% if request.path == '/about/'%} active {% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">Historia</a>
             </li>
+            {# Similar al anterior, pero verifica si la ruta actual es `'/services/'` y genera la URL para la vista `'services'`. #}
             <li class="nav-item px-lg-4 {% if request.path == '/services/'%} active {% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'services' %}">Servicios</a>
             </li>
+            {# Similar al anterior, pero verifica si la ruta actual es `'/store/'` y genera la URL para la vista `'store'`. #}
             <li class="nav-item px-lg-4 {% if request.path == '/store/'%} active {% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'store' %}">Visítanos</a>
             </li>
+            {# Similar al anterior, pero verifica si la ruta actual es `'/contact/'` y genera la URL para la vista `'contact'`. #}
             <li class="nav-item px-lg-4 {% if request.path == '/contact/'%} active {% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'contact' %}">Contacto</a>
             </li>
+            {# Verifica si los primeros 6 caracteres de la ruta (`request.path|slice:":6"`) son `'/blog/'` y agrega la clase `active`.#}
             <li class="nav-item px-lg-4 {% if request.path|slice:":6" == '/blog/'%} active {% endif %}">
+              {#Genera la URL para la vista nombrada `'blog'`. #}
               <a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
             </li>
           </ul>
@@ -65,12 +77,14 @@
     </nav>
 
     <!--Contenido-->
+    {# Define un bloque llamado `content` que será reemplazado por el contenido específico de cada página hija. #}
     {% block content %} {% endblock %}
 
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0">
+          {# Verifica si la variable `LINK_TWITER` está definida en el contexto y muestra el enlace a Twitter si existe. #}
           {% if LINK_TWITER %}
             <a href="{{LINK_TWITER}}" class="link" target="_blank">
               <span class="fa-stack fa-lg">
@@ -79,6 +93,7 @@
               </span>
             </a>
           {% endif %}
+          {# Verifica si la variable `LINK_FACEBOOK` está definida en el contexto y muestra el enlace a Facebook si existe. #}
           {% if LINK_FACEBOOK %}
             <a href="{{LINK_FACEBOOK}}" class="link" target="_blank">
               <span class="fa-stack fa-lg">
@@ -87,6 +102,7 @@
               </span>
             </a>
           {% endif %}
+          {# Verifica si la variable `LINK_INSTAGRAM` está definida en el contexto y muestra el enlace a Instagram si existe. #}
           {% if LINK_INSTAGRAM %}
             <a href="{{LINK_INSTAGRAM}}" class="link" target="_blank">
               <span class="fa-stack fa-lg">
@@ -97,11 +113,11 @@
           {% endif %}
 	    </p>
         <p class="m-0 mbt">
-        	{% comment %} <a href="sample.html" class="link">Política de privacidad</a> ·
-        	<a href="sample.html" class="link">Aviso legal</a> ·
-        	<a href="sample.html" class="link">Cookies</a> {% endcomment %}
+          {# Carga un módulo personalizado de etiquetas de plantilla llamado `pages_extras`. #}
           {% load pages_extras %}
+          {# Ejecuta la etiqueta personalizada `get_page_list` y guarda el resultado en la variable `page_list`. #}
           {% get_page_list as page_list %}
+          
           {% for page in page_list %}
             <a href={% url 'page' page.id page.title|slugify %} class="link">{{page.title}}</a> {% if not forloop.last %} . {% endif %}
           {% endfor %}
@@ -117,3 +133,7 @@
   </body>
 
 </html>
+
+<!-- Este archivo (base.html) es la plantilla base del proyecto, que define la estructura común de todas las páginas del sitio web. Utiliza template tags para incluir archivos estáticos, definir bloques de contenido dinámico, generar URLs reversibles y manejar lógica condicional o iterativa.
+
+Las plantillas hijas (como home.html, about.html, etc.) extienden esta plantilla base y reemplazan los bloques específicos (como content) para personalizar el contenido de cada página. Esto permite mantener un diseño consistente y modular en todo el sitio.-->
