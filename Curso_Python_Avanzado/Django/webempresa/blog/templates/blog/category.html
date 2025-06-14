@@ -4,15 +4,15 @@
 
 <!-- BLOCK TITLE -->
 {% block title %}Blog{% endblock %}
-{# Mantiene el mismo título que blog.html (podría personalizarse) #}
+<!-- Mantiene el mismo título que blog.html (podría personalizarse) -->
 
 <!-- BLOCK CONTENT -->
 {% block content %}
-{# Bloque principal con estructura similar a blog.html pero cambia el dataset #}
+<!-- Bloque principal con estructura similar a blog.html pero cambia el dataset -->
 
   <!-- BUCLE FOR PRINCIPAL -->
   {% for post in category.get_posts.all %}
-  {# Itera sobre posts filtrados por categoría usando el related_name 'get_posts' definido en models.py #}
+  <!-- Itera sobre posts filtrados por categoría usando el related_name 'get_posts' definido en models.py -->
     <section class="page-section cta">
       <div class="container">
         <div class="row">

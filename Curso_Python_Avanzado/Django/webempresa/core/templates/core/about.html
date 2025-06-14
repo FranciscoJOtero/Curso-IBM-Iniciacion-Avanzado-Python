@@ -1,23 +1,23 @@
 {% extends 'core/base.html' %}
-{# Extiende la plantilla base `base.html` desde la carpeta `core`. 
+<!-- Extiende la plantilla base `base.html` desde la carpeta `core`. 
    Esto permite reutilizar la estructura común (como encabezados, pies de página, etc.) 
-   y solo modificar las partes específicas de esta página. #}
+   y solo modificar las partes específicas de esta página. -->
 
 {% load static %}
-{# Carga el módulo `static`, que permite incluir archivos estáticos (CSS, imágenes, JS) 
-   en la plantilla usando #}
+<!-- Carga el módulo `static`, que permite incluir archivos estáticos (CSS, imágenes, JS) 
+   en la plantilla usando -->
 
 {% block title %}Historia{% endblock %}
-{# Define el bloque `title`, que se utiliza para establecer el título de la página. 
-   Este bloque  sera reemplazado en la plantilla base `base.html`. #}
+<!-- Define el bloque `title`, que se utiliza para establecer el título de la página. 
+   Este bloque  sera reemplazado en la plantilla base `base.html`. -->
 
-{# Define el bloque `content`, que contiene el contenido principal de la página. 
-   Este bloque también será reemplazado en la plantilla base `base.html`. #}
+<!-- Define el bloque `content`, que contiene el contenido principal de la página. 
+   Este bloque también será reemplazado en la plantilla base `base.html`. -->
 {% block content %}
 <section class="page-section about-heading">
   <div class="container">
-    {# Incluye una imagen estática (`about.jpg`) desde la carpeta `static/core/img/`. 
-       La función `{% static 'ruta' %}` genera la URL correcta para el archivo estático. #}
+    <!-- Incluye una imagen estática (`about.jpg`) desde la carpeta `static/core/img/`. 
+       La función `{% static 'ruta' %}` genera la URL correcta para el archivo estático. -->
     <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/about.jpg' %}" alt="">
     <div class="about-heading-content">
       <div class="row">
@@ -35,5 +35,5 @@
     </div>
   </div>
 </section>
-{# Fin del bloque de contenido #}
+<!-- Fin del bloque de contenido -->
 {% endblock %}
